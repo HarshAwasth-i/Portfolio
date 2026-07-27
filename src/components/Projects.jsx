@@ -1,14 +1,24 @@
+import devsync from "../assets/images/devsync.png";
 import jobportal from "../assets/images/jobportal.png";
 import resumeanalyzer from "../assets/images/resumeanalyzer.png";
-import spam from "../assets/images/spam.png";
 
 const projects = [
   {
-    title: "Full Stack Job Portal",
+    title: " DevSync",
+    image: devsync,
+    description:
+      "A modern full-stack project management platform inspired by Trello and Jira featuring authentication, Kanban boards, analytics dashboard, task management, and team collaboration.",
+    tech: "React • Node.js • Express • MySQL • JWT • Tailwind CSS",
+    github: "https://github.com/HarshAwasth-i/DevSync",
+    live: "https://dev-sync-roan.vercel.app",
+    featured: true,
+  },
+  {
+    title: "Job Portal",
     image: jobportal,
     description:
-      "A complete Job Portal with authentication, recruiter & candidate workflows, resume upload and cloud deployment.",
-    tech: "React • Node.js • Express • TiDB • JWT",
+      "A responsive full-stack job portal with secure authentication, protected dashboard, job listings, and REST API integration.",
+    tech: "React • Node.js • Express • MySQL • JWT • Tailwind CSS",
     github: "https://github.com/HarshAwasth-i/Job-portal",
     live: "https://job-portal-drab-xi.vercel.app",
   },
@@ -16,19 +26,10 @@ const projects = [
     title: "AI Resume Analyzer",
     image: resumeanalyzer,
     description:
-      "Analyzes resumes using NLP techniques, ATS score prediction and job-description matching.",
-    tech: "Python • Streamlit • NLP",
+      "An AI-powered Resume Analyzer that evaluates resumes using NLP techniques, ATS score prediction, and job-description matching.",
+    tech: "React • Python • Flask • NLP • TF-IDF • spaCy",
     github: "https://github.com/HarshAwasth-i/Resume_Analyzer",
     live: "https://resumeanalyzer-snmgwevjwbjtl4nk36379p.streamlit.app",
-  },
-  {
-    title: "Spam Email Detection",
-    image: spam,
-    description:
-      "Machine Learning based spam email classifier using TF-IDF and multiple classification algorithms.",
-    tech: "Python • NLP • Scikit-learn",
-    github: "#",
-    live: "#",
   },
 ];
 
@@ -44,7 +45,11 @@ function Projects() {
           {projects.map((project) => (
             <div
               key={project.title}
-              className="bg-slate-950 rounded-2xl overflow-hidden shadow-xl hover:-translate-y-2 transition duration-300"
+              className={`rounded-2xl overflow-hidden shadow-xl hover:-translate-y-2 transition duration-300 ${
+  project.featured
+    ? "bg-slate-900 border-2 border-blue-500"
+    : "bg-slate-950"
+}`}
             >
               <img
                 src={project.image}

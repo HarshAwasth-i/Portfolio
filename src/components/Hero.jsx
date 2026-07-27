@@ -19,7 +19,7 @@ function Hero() {
       >
 
         <p className="text-cyan-400 text-xl mb-5">
-          👋 Hello, I'm
+           Hello, I'm
         </p>
 
         <h1 className="text-6xl md:text-8xl font-extrabold">
