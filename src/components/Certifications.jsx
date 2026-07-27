@@ -10,8 +10,8 @@ function Certifications() {
     {
       title: "Software Development Internship",
       subtitle: "Internship Completion Certificate",
-      image: "/certificates/internship-certificate.jpg",
-      link: "/certificates/internship-certificate.jpg",
+      image: "/certificates/internship-certificate.png",
+      link: "/certificates/internship-certificate.png",
     },
   ];
 
