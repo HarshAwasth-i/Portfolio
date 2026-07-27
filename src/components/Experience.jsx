@@ -16,11 +16,11 @@ const timeline = [
       "Completed an internship focused on AI-powered software testing and web application development.",
   },
   {
-    year: "2026",
-    title: "Built Full Stack Projects",
+    year: "2026-27",
+    title: "Building projects and enhancing skills",
     icon: <FaCode />,
     description:
-      "Developed projects including a Job Portal, Resume Analyzer and Spam Email Detection system.",
+      "Developed projects including a Job Portal, Devsync and AI Resume Analyzer.",
   },
 ];
 
