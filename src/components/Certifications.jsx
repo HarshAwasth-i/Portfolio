@@ -1,33 +1,31 @@
 function Certifications() {
-  const certs = [
-    "SAP Certified Associate - Backend Developer",
-    "SAP Learning Journey - Side-by-Side Extensions",
-    "Software Development Internship Certificate",
-  ];
-
   return (
     <section id="certifications" className="py-24 bg-slate-950">
       <div className="max-w-6xl mx-auto px-6">
-
         <h2 className="text-5xl font-bold text-center text-white mb-16">
-          Certifications
+          Certification
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="flex justify-center">
+          <a
+            href="https://www.credly.com/badges/83bd2a01-c03e-49df-9164-65ddc8004a1e/linked_in?t=tfp2sd"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-slate-900 rounded-xl p-8 w-full max-w-xl hover:scale-105 hover:bg-slate-800 transition duration-300 shadow-lg"
+          >
+            <h3 className="text-2xl font-semibold text-white">
+              SAP Certified Associate – Backend Developer
+            </h3>
 
-          {certs.map((cert) => (
-            <div
-              key={cert}
-              className="bg-slate-900 rounded-xl p-8 hover:scale-105 transition duration-300"
-            >
-              <h3 className="text-xl font-semibold text-white">
-                {cert}
-              </h3>
-            </div>
-          ))}
+            <p className="text-slate-400 mt-3">
+              SAP Cloud Application Programming Model (CAP)
+            </p>
 
+            <p className="mt-6 text-blue-400 font-medium">
+              🔗 Click to View Credential
+            </p>
+          </a>
         </div>
-
       </div>
     </section>
   );
