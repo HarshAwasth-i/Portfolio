@@ -1,89 +1,124 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 
-const navLinks = [
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Experience", href: "#experience" },
-  { name: "Certifications", href: "#certifications" },
-  { name: "Contact", href: "#contact" },
-];
+function Navbar({ onOpenContact }) {
+  const [currentTime, setCurrentTime] = useState("");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  useEffect(() => {
+    const updateClock = () => {
+      const now = new Date();
+      setCurrentTime(
+        now.toLocaleTimeString("en-US", {
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          hour12: true,
+        })
+      );
+    };
+    updateClock();
+    const interval = setInterval(updateClock, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const navItems = [
+    { name: "ABOUT", id: "about" },
+    { name: "SKILLS", id: "skills" },
+    { name: "PROJECTS", id: "projects" },
+    { name: "EXPERIENCE", id: "experience" },
+    { name: "EDUCATION", id: "education" },
+    { name: "CERTIFICATIONS", id: "certifications" },
+  ];
+
+  const scrollToSection = (id) => {
+    setMobileMenuOpen(false);
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/80 transition-all duration-300">
-      <div className="max-w-7xl mx-auto px-6 md:px-10 py-4 flex justify-between items-center">
-        {/* Logo */}
+    <header className="fixed top-4 left-4 right-4 z-50 max-w-7xl mx-auto">
+      <nav className="bg-custom-purple border-4 border-black rounded-full px-5 sm:px-6 py-2.5 shadow-neo flex items-center justify-between">
+        {/* Brand Logo */}
         <a
-          href="#"
-          className="text-2xl md:text-3xl font-extrabold tracking-tight group"
+          href="#about"
+          className="font-shrikhand text-2xl sm:text-3xl text-white tracking-wider hover:scale-105 transition-transform flex items-center gap-1.5"
         >
-          <span className="text-cyan-400 group-hover:text-cyan-300 transition">
-            Harsh
-          </span>
-          <span className="text-blue-500">.</span>
+          <span>HARSH</span>
+          <span className="text-custom-yellow font-mono text-xl">()</span>
         </a>
 
-        {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="hover:text-cyan-400 transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-cyan-400 after:to-blue-500 hover:after:w-full after:transition-all after:duration-300"
+        {/* Desktop Nav Links */}
+        <div className="hidden lg:flex items-center gap-2">
+          {navItems.map((item) => (
+            <button
+              key={item.name}
+              onClick={() => scrollToSection(item.id)}
+              className="bg-white border-2 border-black border-b-4 border-r-4 px-3.5 py-1 rounded-full font-bold text-xs uppercase hover:bg-gray-100 hover:border-b-2 hover:border-r-2 active:translate-y-1 transition-all cursor-pointer"
             >
-              {link.name}
-            </a>
+              {item.name}
+            </button>
           ))}
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="ml-2 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-cyan-400 border border-cyan-500/40 rounded-lg hover:bg-cyan-500/10 hover:border-cyan-400 transition"
+
+          {/* Contact CTA */}
+          <button
+            onClick={onOpenContact}
+            className="bg-custom-pink border-2 border-black border-b-4 border-r-4 px-4 py-1 rounded-full font-bold text-xs uppercase hover:bg-custom-yellow active:translate-y-1 transition-all cursor-pointer ml-1"
           >
-            Resume
-          </a>
+            CONTACT
+          </button>
+        </div>
+
+        {/* Digital Clock Pill */}
+        <div className="hidden md:flex items-center gap-2 bg-custom-yellow text-black px-4 py-1 rounded-full font-mono text-xs sm:text-sm font-bold border-black border-2 border-b-4 border-r-4 shadow-sm">
+          <span className="animate-pulse">█</span>
+          <span>{currentTime || "12:00:00 PM"}</span>
         </div>
 
         {/* Mobile Hamburger Button */}
         <button
-          type="button"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="lg:hidden text-white text-xl bg-black p-2 rounded-full border-2 border-white hover:bg-gray-800 transition"
           aria-label="Toggle navigation menu"
-          className="md:hidden text-slate-300 hover:text-white p-2 rounded-lg hover:bg-slate-800/60 transition"
-          onClick={() => setMenuOpen(!menuOpen)}
         >
-          {menuOpen ? <FaTimes size={22} /> : <FaBars size={22} />}
+          {mobileMenuOpen ? <FaTimes /> : <FaBars />}
         </button>
-      </div>
+      </nav>
 
-      {/* Mobile Menu Dropdown */}
-      {menuOpen && (
-        <div className="md:hidden bg-slate-950/95 backdrop-blur-2xl border-b border-slate-800 px-6 py-6 space-y-4 animate-in slide-in-from-top-2 duration-200">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={() => setMenuOpen(false)}
-              className="block text-base font-medium text-slate-300 hover:text-cyan-400 transition py-1.5"
+      {/* Mobile Drawer Menu */}
+      {mobileMenuOpen && (
+        <div className="fixed top-24 left-4 right-4 z-40 bg-custom-purple border-4 border-black rounded-3xl p-4 flex flex-col gap-3 shadow-neo lg:hidden max-w-7xl mx-auto animate-fade-in">
+          {navItems.map((item) => (
+            <button
+              key={item.name}
+              onClick={() => scrollToSection(item.id)}
+              className="bg-white border-2 border-black border-b-4 border-r-4 p-3 rounded-xl font-bold active:border-b-2 active:border-r-2 active:translate-y-1 text-left hover:bg-gray-100 transition-all cursor-pointer"
             >
-              {link.name}
-            </a>
+              {item.name}
+            </button>
           ))}
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setMenuOpen(false)}
-            className="block text-center mt-4 px-4 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg hover:opacity-90 transition"
+
+          <button
+            onClick={() => {
+              setMobileMenuOpen(false);
+              onOpenContact();
+            }}
+            className="bg-custom-pink border-2 border-black border-b-4 border-r-4 p-3 rounded-xl font-bold active:border-b-2 active:border-r-2 active:translate-y-1 text-left hover:bg-custom-yellow transition-all cursor-pointer"
           >
-            View Resume
-          </a>
+            CONTACT ME ✉️
+          </button>
+
+          {/* Clock in Mobile Drawer */}
+          <div className="flex md:hidden items-center gap-2 bg-custom-yellow text-black px-4 py-2.5 rounded-xl font-mono text-sm font-bold border-black border-2 border-b-4 border-r-4 justify-center">
+            <span className="animate-pulse">█</span>
+            <span>{currentTime || "12:00:00 PM"}</span>
+          </div>
         </div>
       )}
-    </nav>
+    </header>
   );
 }
 

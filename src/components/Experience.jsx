@@ -1,86 +1,130 @@
-import { FaBriefcase, FaGraduationCap, FaCode } from "react-icons/fa";
+import { FaCalendarAlt, FaMapMarkerAlt } from "react-icons/fa";
 
-const timeline = [
+const experiences = [
   {
-    year: "2023 – Present",
-    tag: "Education",
-    title: "B.Tech in Computer Science & Engineering",
-    organization: "KIIT University, Bhubaneswar",
-    icon: <FaGraduationCap className="text-white text-base" />,
-    iconBg: "bg-gradient-to-r from-blue-600 to-cyan-500",
+    role: "Software Development Intern",
+    company: "Industry Internship Program",
+    companyUrl: "#",
+    duration: "2026",
+    location: "India · Hybrid / Remote",
+    color: "bg-custom-pink",
     description:
-      "Studying core computer science fundamentals including Data Structures & Algorithms, Database Management Systems, Computer Networks, and Object-Oriented Programming while developing full-stack web applications.",
+      "Contributed to software engineering workflows, engaging in full-stack feature development, automated UI testing, RESTful API integrations, and agile sprints with Git and code reviews.",
   },
   {
-    year: "2026",
-    tag: "Internship",
-    title: "Software Development Intern",
-    organization: "Industry Internship",
-    icon: <FaBriefcase className="text-white text-base" />,
-    iconBg: "bg-gradient-to-r from-cyan-500 to-emerald-500",
+    role: "Full-Stack Web Architect & Problem Solver",
+    company: "Self-Driven Engineering",
+    companyUrl: "https://github.com/HarshAwasth-i",
+    duration: "2023 - Present",
+    location: "KIIT University · Bhubaneswar",
+    color: "bg-custom-yellow",
     description:
-      "Contributed to software engineering workflows, engaging in AI-driven software testing, full-stack application development, API integration, and agile collaboration.",
-  },
-  {
-    year: "Ongoing",
-    tag: "Projects & DSA",
-    title: "Full-Stack Web Architect & Problem Solver",
-    organization: "Self-Driven Development",
-    icon: <FaCode className="text-white text-base" />,
-    iconBg: "bg-gradient-to-r from-indigo-500 to-purple-600",
-    description:
-      "Architected and deployed production-grade projects including DevSync (Kanban project manager), a role-based Job Portal, and TaskPulse (scalable task tracking platform) while continuously solving algorithmic challenges.",
+      "Architected production-grade web applications including DevSync (Kanban board manager), a role-based Job Portal, and TaskPulse with React, Node.js, Express, and MySQL while consistently solving algorithmic challenges in C++.",
   },
 ];
 
 function Experience() {
   return (
-    <section id="experience" className="py-24 bg-slate-900/40 relative">
-      <div className="max-w-4xl mx-auto px-6">
-        {/* Section Heading */}
-        <div className="text-center mb-16">
-          <p className="text-cyan-400 font-semibold tracking-wider uppercase text-sm mb-2">
-            My Journey
-          </p>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white">
-            Experience &amp; Education
+    <section id="experience" className="py-10 px-4 max-w-7xl mx-auto w-full relative">
+      {/* Title Badge */}
+      <div className="flex items-center gap-4 mb-10">
+        <div className="bg-custom-yellow px-8 py-3 rounded-full border-4 border-black shadow-neo">
+          <h2 className="text-3xl font-shrikhand italic uppercase tracking-wide text-black">
+            EXPERIENCE
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-cyan-400 to-blue-600 mx-auto mt-4 rounded-full" />
         </div>
+      </div>
 
-        {/* Timeline Container */}
-        <div className="relative border-l-2 border-slate-800 ml-4 md:ml-6 space-y-12">
-          {timeline.map((item, index) => (
-            <div key={index} className="relative pl-8 md:pl-10 group">
-              {/* Timeline Circular Icon Node - fixed alignment */}
-              <div
-                className={`absolute -left-[21px] top-1.5 w-10 h-10 rounded-full ${item.iconBg} flex items-center justify-center shadow-lg shadow-cyan-500/10 ring-4 ring-slate-950 transition-transform duration-300 group-hover:scale-110`}
-              >
-                {item.icon}
+      {/* Timeline items */}
+      <div className="relative max-w-6xl mx-auto z-10 pb-8">
+        <div className="flex flex-col gap-12 lg:gap-20">
+          {experiences.map((item, idx) => (
+            <div
+              key={idx}
+              className="flex flex-col lg:flex-row gap-6 lg:gap-16 items-start relative group"
+            >
+              {/* Left Column: Metadata */}
+              <div className="w-full lg:w-[260px] flex-shrink-0 flex flex-col items-start gap-4 z-10">
+                <div className="inline-flex items-center gap-3 bg-gray-100 px-5 py-2 border-4 border-black rounded-full shadow-[4px_4px_0_rgba(0,0,0,1)] font-bold text-sm md:text-base text-black">
+                  <FaCalendarAlt className="text-black" />
+                  <span>{item.duration}</span>
+                </div>
+
+                <div className="flex items-center gap-2 font-bold text-sm md:text-base text-gray-800 ml-2">
+                  <FaMapMarkerAlt className="text-black text-lg flex-shrink-0" />
+                  <span>{item.location}</span>
+                </div>
               </div>
 
-              {/* Card Body */}
-              <div className="bg-slate-900/70 border border-slate-800/90 hover:border-slate-700 rounded-2xl p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
-                <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
-                    {item.year}
-                  </span>
-                  <span className="text-xs font-medium text-slate-500 uppercase tracking-wider">
-                    {item.tag}
+              {/* Connecting Horizontal Line (desktop) */}
+              <div className="hidden lg:block absolute top-6 left-[260px] w-16 h-1 bg-black z-0 border-t-4 border-black group-hover:bg-custom-yellow transition-colors" />
+
+              {/* Dashed connector SVG between items */}
+              {idx !== experiences.length - 1 && (
+                <div className="hidden lg:block absolute top-[40px] -bottom-[80px] left-[260px] w-16 -z-10 pointer-events-none">
+                  <svg
+                    className="w-full h-full"
+                    preserveAspectRatio="none"
+                    viewBox="0 0 100 100"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M 50 0 C 120 25, -20 75, 50 100"
+                      stroke="black"
+                      strokeWidth="5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeDasharray="2 12"
+                      vectorEffect="non-scaling-stroke"
+                    />
+                  </svg>
+                </div>
+              )}
+
+              {/* Right Column: Retro Window Card */}
+              <div className="w-full flex-grow border-4 border-black shadow-neo hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all flex flex-col h-full relative bg-white rounded-2xl overflow-hidden">
+                {/* Window Top Bar */}
+                <div
+                  className={`border-b-4 border-black px-3 py-2 flex justify-between items-center ${item.color}`}
+                >
+                  <div className="flex gap-2">
+                    <div className="w-3 h-3 rounded-full bg-white border-2 border-black" />
+                    <div className="w-3 h-3 rounded-full bg-white border-2 border-black" />
+                    <div className="w-3 h-3 rounded-full bg-white border-2 border-black" />
+                  </div>
+                  <span className="font-mono text-[10px] font-black uppercase tracking-widest text-black">
+                    experience.exe
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold text-white tracking-tight mt-2">
-                  {item.title}
-                </h3>
+                {/* Content Box */}
+                <div className="p-6 md:p-8 flex flex-col flex-grow">
+                  <h3 className="text-2xl md:text-3xl italic leading-tight mb-5 tracking-wide text-black font-shrikhand">
+                    {item.role}
+                  </h3>
 
-                <p className="text-sm font-medium text-blue-400 mt-1">
-                  {item.organization}
-                </p>
+                  <a
+                    href={item.companyUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={`inline-block ${item.color} px-5 py-2 border-4 border-black rounded-full font-bold text-base md:text-lg shadow-[4px_4px_0_rgba(0,0,0,1)] mb-8 tracking-wide w-fit hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all text-black`}
+                  >
+                    {item.company}
+                  </a>
 
-                <p className="text-slate-400 text-sm leading-relaxed mt-3">
-                  {item.description}
-                </p>
+                  {/* Description container */}
+                  <div className="bg-gray-50 border-4 border-black rounded-xl p-5 md:p-6 shadow-sm relative overflow-hidden">
+                    <div className="flex gap-1.5 mb-4">
+                      <div className="w-3 h-3 rounded-full bg-custom-red border-2 border-black" />
+                      <div className="w-3 h-3 rounded-full bg-custom-yellow border-2 border-black" />
+                      <div className="w-3 h-3 rounded-full bg-custom-green border-2 border-black" />
+                    </div>
+                    <p className="font-sans text-sm md:text-base font-bold leading-relaxed text-gray-900">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           ))}

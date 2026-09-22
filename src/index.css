@@ -1,4 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Shrikhand&display=swap");
 @import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", sans-serif;
+  --font-shrikhand: "Shrikhand", cursive;
+  --color-custom-pink: #ff9fac;
+  --color-custom-purple: #a78bfa;
+  --color-custom-blue: #60a5fa;
+  --color-custom-red: #f87171;
+  --color-custom-yellow: #fcd34d;
+  --color-custom-green: #4ade80;
+}
+
+@utility shadow-neo {
+  box-shadow: 6px 6px 0px 0px #000;
+}
+
+@utility shadow-neo-sm {
+  box-shadow: 4px 4px 0px 0px #000;
+}
+
+@utility shadow-neo-white {
+  box-shadow: 4px 4px 0px 0px #fff;
+}
+
+/* Hide default OS cursor on fine-pointer devices so only custom neo-brutal cursor is visible */
+@media (pointer: fine) {
+  *,
+  *::before,
+  *::after {
+    cursor: none !important;
+  }
+}
 
 html {
   scroll-behavior: smooth;
@@ -6,32 +39,67 @@ html {
 
 body {
   margin: 0;
-  background: #020617;
-  color: #f8fafc;
-  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--color-custom-blue);
+  color: #000000;
+  font-family: var(--font-sans);
+  min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  background-color: rgba(6, 182, 212, 0.3);
-  color: #38bdf8;
+  background-color: #fcd34d;
+  color: #000000;
 }
 
-/* Custom modern scrollbar */
+/* Retro Neo-brutalist Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #020617;
+  background: #ffffff;
+  border-left: 2px solid #000000;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #000000;
+  border: 2px solid #ffffff;
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #38bdf8;
+  background: #ff9fac;
+}
+
+/* Terminal Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #60a5fa;
+  border-radius: 4px;
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translate(0);
+  }
+  100% {
+    transform: translate(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: 16s linear infinite marquee;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
 }

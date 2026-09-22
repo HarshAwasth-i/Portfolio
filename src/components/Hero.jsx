@@ -1,124 +1,150 @@
-import { useState, useEffect } from "react";
-import { FaGithub, FaLinkedin, FaDownload, FaArrowRight } from "react-icons/fa";
-import { motion, AnimatePresence } from "framer-motion";
+import { FaGithub, FaLinkedin, FaEnvelope, FaCode } from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
+import Terminal from "./Terminal";
 
-const roles = [
-  "Full Stack Developer",
-  "React & Node.js Specialist",
-  "DSA & Problem Solver",
-  "Computer Science Undergrad",
-];
-
-function Hero() {
-  const [roleIndex, setRoleIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setRoleIndex((prev) => (prev + 1) % roles.length);
-    }, 2800);
-    return () => clearInterval(interval);
-  }, []);
-
+function Hero({ onOpenContact }) {
   return (
-    <section
-      id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-950 pt-20"
-    >
-      {/* Ambient background glows */}
-      <div className="absolute w-[550px] h-[550px] bg-blue-600/15 blur-[160px] rounded-full top-16 -left-24 pointer-events-none" />
-      <div className="absolute w-[450px] h-[450px] bg-cyan-500/15 blur-[160px] rounded-full bottom-10 -right-16 pointer-events-none" />
-      <div className="absolute w-[300px] h-[300px] bg-purple-600/10 blur-[140px] rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+    <section className="pt-4 pb-10 px-4 max-w-7xl mx-auto flex flex-col md:flex-row gap-8 items-start justify-center">
+      {/* Left Column: Neo-Brutalist ID Card */}
+      <div className="w-full md:w-1/3 bg-white border-2 border-b-4 border-r-4 border-black rounded-3xl p-6 shadow-neo flex flex-col items-center text-center relative overflow-hidden">
+        {/* Retro Tape Sticker */}
+        <div className="absolute top-4 left-1/2 -translate-x-1/2 bg-gray-200/60 w-24 h-6 rotate-[-4deg] border border-gray-400 pointer-events-none" />
 
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="relative z-10 text-center max-w-4xl px-6 py-12"
-      >
-        {/* Availability Badge */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/80 border border-slate-700/80 text-xs font-medium text-slate-300 mb-8 shadow-sm">
-          <span className="relative flex h-2.5 w-2.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-          </span>
-          <span>Open to Software Roles &amp; Internships</span>
+        {/* Profile Picture */}
+        <div className="w-32 h-32 bg-custom-pink rounded-full border-4 border-black mb-4 mt-2 flex items-center justify-center overflow-hidden shadow-neo-sm">
+          <img
+            src="/profile.jpeg"
+            alt="Harsh Awasthi"
+            className="w-full h-full object-cover"
+          />
         </div>
 
-        {/* Intro */}
-        <p className="text-cyan-400 text-lg md:text-xl font-medium tracking-wide mb-3">
-          Hello, I'm
-        </p>
-
-        {/* Name */}
-        <h1 className="text-5xl sm:text-6xl md:text-8xl font-extrabold tracking-tight">
-          <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
-            Harsh Awasthi
-          </span>
+        {/* Name & Role */}
+        <h1 className="text-3xl sm:text-4xl font-shrikhand mb-1 tracking-wide text-black">
+          HARSH AWASTHI
         </h1>
-
-        {/* Animated Rotating Subtitle */}
-        <div className="h-12 mt-4 flex items-center justify-center overflow-hidden">
-          <AnimatePresence mode="wait">
-            <motion.h2
-              key={roles[roleIndex]}
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -20, opacity: 0 }}
-              transition={{ duration: 0.4 }}
-              className="text-2xl sm:text-3xl md:text-4xl font-semibold text-slate-200"
-            >
-              {roles[roleIndex]}
-            </motion.h2>
-          </AnimatePresence>
+        <div className="bg-black text-white px-3 py-1 font-mono text-xs sm:text-sm font-bold rounded-md mb-4 rotate-1 shadow-sm">
+          FULL_STACK_DEVELOPER()
         </div>
 
-        {/* Short Bio */}
-        <p className="mt-6 text-slate-400 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-          B.Tech CSE student at KIIT University passionate about building scalable
-          full-stack applications, solving complex algorithmic challenges, and
-          architecting clean digital solutions with React, Node.js, Express &amp; MySQL.
-        </p>
+        {/* Metadata Details */}
+        <div className="w-full space-y-3 text-left font-bold text-xs sm:text-sm font-mono border-t-2 border-black pt-4">
+          <div>
+            <span className="bg-custom-yellow px-1.5 py-0.5 border border-black mr-2 text-black">
+              [LOCATION]
+            </span>
+            <span>LUCKNOW, INDIA</span>
+          </div>
+          <div>
+            <span className="bg-custom-green px-1.5 py-0.5 border border-black mr-2 text-black">
+              [STATUS]
+            </span>
+            <span>B.TECH CSE @ KIIT (2023–27)</span>
+          </div>
+          <div>
+            <span className="bg-custom-blue px-1.5 py-0.5 border border-black mr-2 text-black">
+              [MISSION]
+            </span>
+            <span>To Build Scalable Software</span>
+          </div>
+        </div>
 
-        {/* Action Buttons */}
-        <div className="flex flex-wrap items-center justify-center gap-4 mt-10">
+        {/* Call to Action Buttons */}
+        <div className="w-full flex flex-col gap-3 mt-6">
           <a
-            href="#projects"
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold px-7 py-3.5 rounded-xl hover:shadow-lg hover:shadow-cyan-500/25 hover:scale-[1.02] active:scale-[0.98] transition duration-200"
+            href="mailto:harshawasthi2023@gmail.com?subject=Request%20Resume%20-%20Harsh%20Awasthi"
+            className="bg-custom-green w-full py-3 rounded-xl border-2 border-black font-bold text-sm shadow-neo-sm hover:translate-y-1 hover:shadow-none active:translate-y-1 transition-all flex items-center justify-center gap-2 cursor-pointer text-black uppercase"
           >
-            Explore Projects
-            <FaArrowRight className="text-sm" />
+            <FaEnvelope className="text-base" /> REQUEST RESUME
           </a>
 
-          <a
-            href="/resume.pdf"
-            download
-            className="inline-flex items-center gap-2 bg-slate-900/90 hover:bg-slate-800 text-slate-200 font-semibold px-7 py-3.5 rounded-xl border border-slate-700 hover:border-slate-500 hover:scale-[1.02] active:scale-[0.98] transition duration-200"
+          <button
+            onClick={onOpenContact}
+            className="bg-custom-red text-white w-full py-3 rounded-xl border-2 border-black font-bold text-sm shadow-neo-sm hover:translate-y-1 hover:shadow-none active:translate-y-1 transition-all flex items-center justify-center gap-2 cursor-pointer uppercase"
           >
-            <FaDownload className="text-cyan-400 text-sm" />
-            Download CV
+            <FaEnvelope className="text-base" /> CONTACT ME
+          </button>
+        </div>
+
+        {/* Social Links Row */}
+        <div className="flex gap-4 mt-6 text-2xl flex-wrap justify-center items-center">
+          <a
+            href="mailto:harshawasthi2023@gmail.com"
+            aria-label="Email Harsh"
+            className="hover:scale-110 transition-transform text-red-500 hover:rotate-6"
+          >
+            <FaEnvelope />
           </a>
 
           <a
             href="https://github.com/HarshAwasth-i"
             target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub Profile"
-            className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-300 hover:text-white hover:border-slate-600 hover:bg-slate-800 transition"
+            rel="noreferrer"
+            aria-label="Harsh's GitHub"
+            className="hover:scale-110 transition-transform text-black hover:-rotate-6"
           >
-            <FaGithub size={20} />
+            <FaGithub />
           </a>
 
           <a
             href="https://linkedin.com/in/harsh-awasthi-181761331"
             target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn Profile"
-            className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-300 hover:text-cyan-400 hover:border-cyan-500/50 hover:bg-slate-800 transition"
+            rel="noreferrer"
+            aria-label="Harsh's LinkedIn"
+            className="hover:scale-110 transition-transform text-blue-600 hover:rotate-6"
           >
-            <FaLinkedin size={20} />
+            <FaLinkedin />
+          </a>
+
+          <a
+            href="https://leetcode.com/u/Harsh_Awasthii/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Harsh's LeetCode"
+            className="hover:scale-110 transition-transform text-amber-500 hover:-rotate-6"
+            title="LeetCode Profile"
+          >
+            <SiLeetcode />
           </a>
         </div>
-      </motion.div>
+      </div>
+
+      {/* Right Column: Bio Card + Interactive Terminal */}
+      <div className="w-full md:w-2/3 flex flex-col gap-6" id="about">
+        {/* Intro Card */}
+        <div className="bg-custom-yellow p-6 md:p-10 rounded-3xl border-2 border-b-4 border-r-4 border-black shadow-neo text-black">
+          <h2 className="text-4xl font-shrikhand mb-5 tracking-wide">
+            Hi people! 👋
+          </h2>
+
+          <p className="text-base sm:text-lg font-medium leading-relaxed mb-4">
+            I'm Harsh, a{" "}
+            <span className="font-bold bg-white px-1.5 py-0.5 border border-black rounded">
+              B.Tech Computer Science & Engineering undergraduate at KIIT University (2023–2027)
+            </span>{" "}
+            focused on engineering performant full-stack applications with clean architecture.
+          </p>
+
+          <p className="text-base sm:text-lg font-medium leading-relaxed mb-6">
+            I architect end-to-end web platforms using{" "}
+            <span className="font-bold bg-custom-pink px-1.5 py-0.5 border border-black rounded">
+              React, Node.js, Express, and MySQL
+            </span>
+            , while actively sharpening my problem-solving ability in{" "}
+            <span className="font-bold bg-custom-green px-1.5 py-0.5 border border-black rounded">
+              C++ and Data Structures & Algorithms
+            </span>
+            .
+          </p>
+
+          <div className="bg-white p-4 border-2 border-black rounded-xl inline-block font-bold text-sm sm:text-base shadow-neo-sm">
+            🚀 Open to Software Engineering, Full-Stack Roles &amp; Internships
+          </div>
+        </div>
+
+        {/* Interactive CLI Terminal */}
+        <Terminal />
+      </div>
     </section>
   );
 }

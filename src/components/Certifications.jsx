@@ -1,91 +1,112 @@
-import { FaExternalLinkAlt, FaCheckCircle, FaAward } from "react-icons/fa";
+import { FaAward, FaExternalLinkAlt, FaCheckCircle } from "react-icons/fa";
+
+const certsList = [
+  {
+    title: "SAP Certified Associate – Backend Developer",
+    subtitle: "SAP Cloud Application Programming Model (CAP)",
+    issuer: "SAP SE",
+    date: "Certified Credential",
+    color: "bg-custom-yellow",
+    tabLabel: "sap_cap.cert",
+    link: "https://www.credly.com/badges/83bd2a01-c03e-49df-9164-65ddc8004a1e/linked_in?t=tfp2sd",
+    description:
+      "Globally recognized certification validating core backend proficiency in SAP Cloud Application Programming Model (CAP), CDS service definition, Node.js backend logic, relational data modeling, and cloud deployments.",
+    badgeText: "Credly Verified",
+  },
+  {
+    title: "Software Development Internship Certificate",
+    subtitle: "Industry Software Engineering & Web Practices",
+    issuer: "Industry Program",
+    date: "Completed 2026",
+    color: "bg-custom-pink",
+    tabLabel: "internship.doc",
+    link: "/certificates/internship-certificate.png",
+    description:
+      "Successfully concluded intensive software development internship contributing to production full-stack engineering, automated testing, REST API integrations, and collaborative agile sprint delivery.",
+    badgeText: "Verified Completion",
+  },
+];
+
+function CertCard({ title, subtitle, issuer, date, color, tabLabel, link, description, badgeText }) {
+  return (
+    <div className="border-4 border-black shadow-neo hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all flex flex-col md:flex-row h-full relative bg-white rounded-2xl overflow-hidden">
+      {/* Side Decorative Tab */}
+      <div
+        className={`border-b-4 md:border-b-0 md:border-r-4 border-black px-4 py-3 md:w-16 flex md:flex-col justify-between items-center ${color}`}
+      >
+        <div className="flex gap-2">
+          <div className="w-3 h-3 rounded-full bg-white border-2 border-black" />
+          <div className="w-3 h-3 rounded-full bg-white border-2 border-black" />
+          <div className="w-3 h-3 rounded-full bg-white border-2 border-black" />
+        </div>
+        <span className="font-mono text-[10px] font-black uppercase tracking-widest text-black">
+          <span className="md:[writing-mode:vertical-rl] md:rotate-180">
+            {tabLabel}
+          </span>
+        </span>
+      </div>
+
+      {/* Main Content */}
+      <div className="p-6 md:p-8 flex flex-col flex-grow justify-between">
+        <div>
+          <div className="flex justify-between items-start mb-3 gap-4">
+            <div>
+              <span className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-xs font-mono font-bold bg-custom-green text-black border border-black mb-2 shadow-xs">
+                <FaCheckCircle className="text-xs" /> {badgeText}
+              </span>
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold leading-snug text-black">
+                {title}
+              </h3>
+              <p className="text-sm font-semibold text-gray-700 mt-1">
+                {subtitle} • <span className="font-bold text-black">{issuer}</span>
+              </p>
+            </div>
+            <FaAward className="text-4xl text-custom-yellow flex-shrink-0 drop-shadow-[2px_2px_0_rgba(0,0,0,1)]" />
+          </div>
+
+          <p className="text-sm sm:text-base font-medium mb-6 text-gray-700 leading-relaxed">
+            {description}
+          </p>
+        </div>
+
+        {/* Footer Link Row */}
+        <div className="flex items-center justify-between mt-auto pt-4 border-t-4 border-black border-dashed">
+          <span className="bg-gray-100 border border-black px-2.5 py-1 text-xs font-bold font-mono text-black">
+            {date}
+          </span>
+
+          <a
+            href={link}
+            target="_blank"
+            rel="noreferrer"
+            className="bg-black text-white px-4 py-2 font-bold text-xs sm:text-sm flex items-center justify-center gap-2 hover:bg-gray-800 transition-colors border-2 border-black hover:text-custom-yellow shadow-neo-sm hover:shadow-none"
+          >
+            <span>View Credential</span>
+            <FaExternalLinkAlt className="text-xs" />
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function Certifications() {
-  const certifications = [
-    {
-      title: "SAP Certified Associate – Backend Developer",
-      subtitle: "SAP Cloud Application Programming Model (CAP)",
-      issuer: "SAP",
-      image: "https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg",
-      link: "https://www.credly.com/badges/83bd2a01-c03e-49df-9164-65ddc8004a1e/linked_in?t=tfp2sd",
-      verified: true,
-      badgeText: "Credly Verified",
-    },
-    {
-      title: "Software Development Internship",
-      subtitle: "Internship Completion Certificate",
-      issuer: "Industry Program",
-      image: "/certificates/internship-certificate.png",
-      link: "/certificates/internship-certificate.png",
-      verified: true,
-      badgeText: "Completion Certified",
-    },
-  ];
-
   return (
-    <section id="certifications" className="py-24 bg-slate-950 relative">
-      <div className="max-w-6xl mx-auto px-6">
-        {/* Section Heading */}
-        <div className="text-center mb-16">
-          <p className="text-cyan-400 font-semibold tracking-wider uppercase text-sm mb-2">
-            Credentials
-          </p>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white">
-            Certifications &amp; Badges
+    <section id="certifications" className="py-10 px-4 max-w-7xl mx-auto w-full">
+      {/* Title Badge */}
+      <div className="flex items-center gap-4 mb-10">
+        <div className="bg-custom-purple px-8 py-3 border-4 border-black shadow-neo rounded-full">
+          <h2 className="text-3xl font-shrikhand text-white tracking-wide">
+            CREDENTIALS &amp; CERTIFICATIONS
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-cyan-400 to-blue-600 mx-auto mt-4 rounded-full" />
         </div>
+      </div>
 
-        {/* Certifications Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
-          {certifications.map((cert) => (
-            <a
-              key={cert.title}
-              href={cert.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative bg-slate-900/70 border border-slate-800/90 hover:border-cyan-500/50 rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-1.5 hover:shadow-cyan-500/10 flex flex-col"
-            >
-              {/* Image Preview Container */}
-              <div className="h-52 bg-slate-900/90 flex items-center justify-center p-6 border-b border-slate-800/80 relative overflow-hidden group-hover:bg-slate-850 transition">
-                <img
-                  src={cert.image}
-                  alt={cert.title}
-                  className="max-h-36 max-w-full object-contain group-hover:scale-105 transition duration-300"
-                />
-                <div className="absolute top-3 right-3">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 backdrop-blur-sm">
-                    <FaCheckCircle className="text-xs" />
-                    {cert.badgeText}
-                  </span>
-                </div>
-              </div>
-
-              {/* Text Info */}
-              <div className="p-6 flex flex-col flex-grow justify-between">
-                <div>
-                  <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
-                    {cert.issuer}
-                  </span>
-                  <h3 className="text-xl font-bold text-white mt-1 group-hover:text-cyan-400 transition">
-                    {cert.title}
-                  </h3>
-                  <p className="text-sm text-slate-400 mt-2">
-                    {cert.subtitle}
-                  </p>
-                </div>
-
-                <div className="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between text-sm font-semibold text-cyan-400">
-                  <span className="inline-flex items-center gap-2">
-                    <FaAward className="text-base" />
-                    View Certificate
-                  </span>
-                  <FaExternalLinkAlt className="text-xs group-hover:translate-x-0.5 transition" />
-                </div>
-              </div>
-            </a>
-          ))}
-        </div>
+      {/* Grid of Credentials */}
+      <div className="grid grid-cols-1 gap-8">
+        {certsList.map((item, idx) => (
+          <CertCard key={idx} {...item} />
+        ))}
       </div>
     </section>
   );
