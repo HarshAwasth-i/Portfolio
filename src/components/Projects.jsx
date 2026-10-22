@@ -1,7 +1,7 @@
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import devsync from "../assets/images/devsync.png";
 import jobportal from "../assets/images/jobportal.png";
-import taskpulse from "../assets/images/taskpulse.png";
+import instagramwrapped from "../assets/images/instagramwrapped.png";
 
 const projectsList = [
   {
@@ -9,13 +9,25 @@ const projectsList = [
     image: devsync,
     color: "bg-custom-blue",
     featured: true,
-    tools: ["React", "Node.js", "Express", "MySQL", "JWT", "Tailwind CSS"],
+    tools: ["React.js", "Node.js", "Express.js", "MySQL", "JWT", "REST APIs"],
     link: "https://github.com/HarshAwasth-i/DevSync",
     liveLink: "https://dev-sync-roan.vercel.app",
     description: [
-      "Full-stack Kanban project management platform inspired by Trello and Jira.",
-      "Integrated role-based JWT authentication, board analytics, and collaborative task tracking.",
-      "Engineered optimized REST APIs for real-time status transitions and workspace isolation.",
+      "Built a full-stack project management platform with Kanban workflow, task prioritization, and deadline tracking to keep teams aligned on priorities.",
+      "Architected 22 RESTful API endpoints across 6 backend modules (auth, projects, tasks, teams, dashboard, activity) on 5 relational MySQL tables, powering a real-time analytics dashboard.",
+    ],
+  },
+  {
+    title: "Instagram Wrapped",
+    image: instagramwrapped,
+    color: "bg-custom-pink",
+    featured: true,
+    tools: ["React.js", "TypeScript", "Vite", "Tailwind CSS", "Recharts", "IndexedDB"],
+    link: "https://github.com/HarshAwasth-i/instagram-wrapped",
+    liveLink: "https://instagram-wrapped-tau.vercel.app",
+    description: [
+      "Built a privacy-first analytics dashboard that turns an Instagram data export into a personalized yearly Wrapped; ZIP parsing and analytics run entirely in the browser, so no personal data is uploaded.",
+      "Engineered a client-side analytics engine for messages, likes, content, and connections with multi-year filtering, plus an animated story experience and a downloadable recap card; deployed on Vercel.",
     ],
   },
   {
@@ -23,27 +35,12 @@ const projectsList = [
     image: jobportal,
     color: "bg-custom-green",
     featured: true,
-    tools: ["React", "Node.js", "Express", "MySQL", "JWT", "REST API"],
+    tools: ["React.js", "Node.js", "Express.js", "TiDB Cloud", "JWT", "Tailwind CSS"],
     link: "https://github.com/HarshAwasth-i/Job-portal",
     liveLink: "https://job-portal-drab-xi.vercel.app",
     description: [
-      "Comprehensive job platform with dual dashboards for recruiters and job seekers.",
-      "Supports job posting, application filtering, resume submissions, and interview status tracking.",
-      "Built with strict SQL relational schema and secure password hashing workflows.",
-    ],
-  },
-  {
-    title: "TaskPulse",
-    image: taskpulse,
-    color: "bg-custom-pink",
-    featured: true,
-    tools: ["React.js", "Node.js", "Express.js", "MySQL", "Tailwind CSS"],
-    link: "https://github.com/HarshAwasth-i/Task-Pulse",
-    liveLink: "https://developer-practice-delta.vercel.app/",
-    description: [
-      "Scalable task coordination suite with progress analytics and deadline reminders.",
-      "Designed dynamic filtering, sorting by priority, and instant status updates.",
-      "Implemented modular backend micro-services with structured error handling.",
+      "Built a full-stack job portal with secure JWT-based authentication, streamlining end-to-end recruiter and candidate workflows.",
+      "Designed and shipped 12 RESTful API endpoints across job postings, applications, and resume uploads; deployed with CI/CD (frontend on Vercel, backend on Render).",
     ],
   },
 ];

@@ -4,22 +4,25 @@ const educationData = [
   {
     year: "2023 - 2027",
     degree: "B.Tech in Computer Science & Engineering",
-    institution: "KIIT University, Bhubaneswar, Odisha",
-    details: "Core subjects: Data Structures & Algorithms, DBMS, Operating Systems, Computer Networks, OOP.",
+    institution: "Kalinga Institute of Industrial Technology",
+    grade: "CGPA: 7.7",
+    details: "Core coursework: Data Structures & Algorithms, Object-Oriented Programming, DBMS, Operating Systems, Computer Networks.",
     color: "bg-purple-100",
   },
   {
-    year: "XII (Senior Secondary)",
-    degree: "Central Board of Secondary Education (CBSE)",
-    institution: "Senior Secondary School",
+    year: "2020 - 2023",
+    degree: "Class XII (Senior Secondary)",
+    institution: "Lucknow Public School",
+    grade: "Score: 82%",
     details: "Physics, Chemistry, Mathematics & Computer Science.",
     color: "bg-blue-100",
   },
   {
-    year: "X (Secondary)",
-    degree: "Secondary School Examination",
-    institution: "High School",
-    details: "Strong foundational academics with distinction in Science and Mathematics.",
+    year: "2020",
+    degree: "Class X (Secondary Examination)",
+    institution: "Lucknow Public School",
+    grade: "Score: 90%",
+    details: "Strong academic foundation with distinction across Science and Mathematics.",
     color: "bg-pink-100",
   },
 ];
@@ -55,9 +58,16 @@ function Education() {
                   <h3 className="text-lg sm:text-xl font-shrikhand leading-tight mb-1 text-black">
                     {item.degree}
                   </h3>
-                  <p className="font-bold text-sm text-gray-800 mb-2">
-                    {item.institution}
-                  </p>
+                  <div className="flex items-center justify-between gap-2 flex-wrap mb-2">
+                    <p className="font-bold text-sm text-gray-800">
+                      {item.institution}
+                    </p>
+                    {item.grade && (
+                      <span className="bg-black text-white px-2.5 py-0.5 rounded-full text-xs font-mono font-bold shadow-xs">
+                        {item.grade}
+                      </span>
+                    )}
+                  </div>
                   {item.details && (
                     <div className="text-xs sm:text-sm font-medium bg-white/70 p-2 rounded-lg border border-black/20 text-gray-700">
                       {item.details}

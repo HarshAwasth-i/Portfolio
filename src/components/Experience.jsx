@@ -3,13 +3,16 @@ import { FaCalendarAlt, FaMapMarkerAlt } from "react-icons/fa";
 const experiences = [
   {
     role: "Software Development Intern",
-    company: "Industry Internship Program",
+    company: "ClusterCode Technology Sdn. Bhd.",
     companyUrl: "#",
-    duration: "2026",
-    location: "India · Hybrid / Remote",
+    duration: "Apr 2026 – Jun 2026",
+    location: "Remote",
     color: "bg-custom-pink",
-    description:
-      "Contributed to software engineering workflows, engaging in full-stack feature development, automated UI testing, RESTful API integrations, and agile sprints with Git and code reviews.",
+    bullets: [
+      "Contributed to an AI-powered platform that scans web applications and uses LLM-based analysis to auto-generate comprehensive UI automation test scripts.",
+      "Collaborated with a cross-functional team in an agile workflow to map application architecture and design automated testing pipelines.",
+      "Debugged and validated AI-generated test scripts against real application flows, closing the loop between automated generation and QA sign-off.",
+    ],
   },
   {
     role: "Full-Stack Web Architect & Problem Solver",
@@ -18,8 +21,11 @@ const experiences = [
     duration: "2023 - Present",
     location: "KIIT University · Bhubaneswar",
     color: "bg-custom-yellow",
-    description:
-      "Architected production-grade web applications including DevSync (Kanban board manager), a role-based Job Portal, and TaskPulse with React, Node.js, Express, and MySQL while consistently solving algorithmic challenges in C++.",
+    bullets: [
+      "Architected and deployed 3 production-grade web applications: DevSync (Kanban board manager), Instagram Wrapped (client-side privacy-first analytics), and a full-stack Job Portal.",
+      "Engineered secure JWT authentication, relational MySQL/TiDB database schemas, and optimized REST APIs.",
+      "Consistently solved algorithmic and data structure challenges in C++ (300+ DSA & 100+ SQL problems on LeetCode).",
+    ],
   },
 ];
 
@@ -106,7 +112,7 @@ function Experience() {
 
                   <a
                     href={item.companyUrl}
-                    target="_blank"
+                    target={item.companyUrl !== "#" ? "_blank" : undefined}
                     rel="noreferrer"
                     className={`inline-block ${item.color} px-5 py-2 border-4 border-black rounded-full font-bold text-base md:text-lg shadow-[4px_4px_0_rgba(0,0,0,1)] mb-8 tracking-wide w-fit hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all text-black`}
                   >
@@ -120,9 +126,17 @@ function Experience() {
                       <div className="w-3 h-3 rounded-full bg-custom-yellow border-2 border-black" />
                       <div className="w-3 h-3 rounded-full bg-custom-green border-2 border-black" />
                     </div>
-                    <p className="font-sans text-sm md:text-base font-bold leading-relaxed text-gray-900">
-                      {item.description}
-                    </p>
+                    {item.bullets ? (
+                      <ul className="list-disc list-inside space-y-2 font-sans text-sm md:text-base font-semibold leading-relaxed text-gray-900">
+                        {item.bullets.map((bullet, bIdx) => (
+                          <li key={bIdx}>{bullet}</li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="font-sans text-sm md:text-base font-bold leading-relaxed text-gray-900">
+                        {item.description}
+                      </p>
+                    )}
                   </div>
                 </div>
               </div>

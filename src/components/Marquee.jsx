@@ -1,10 +1,11 @@
 const MARQUEE_ITEMS = [
-  "2027 B.Tech CSE Undergrad at KIIT University",
-  "Full-Stack Web Architect (React, Node.js, Express, MySQL)",
-  "SAP Certified Associate - Backend Developer (CAP)",
-  "Active LeetCode Problem Solver in C++ & DSA",
-  "Production Ready: DevSync, Job Portal & TaskPulse",
-  "Open to Software Engineering & Full-Stack Opportunities",
+  "2027 B.Tech CSE Undergrad at KIIT (CGPA: 7.7)",
+  "Full-Stack SDE (React.js, Node.js, Express.js, MySQL, TiDB Cloud, TypeScript)",
+  "Ex-SDE Intern @ ClusterCode Technology Sdn. Bhd.",
+  "SAP Certified Associate - Backend Developer",
+  "Solved 300+ DSA & 100+ SQL Problems on LeetCode",
+  "Production Deployed: DevSync, Instagram Wrapped & Job Portal",
+  "Open to Software Development Engineer (SDE) Roles & Internships",
 ];
 
 function Marquee() {

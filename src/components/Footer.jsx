@@ -20,7 +20,7 @@ function Footer() {
             </span>
           </div>
           <p className="font-mono text-xs sm:text-sm font-bold text-gray-800 mt-1">
-            Full-Stack Developer • B.Tech CSE @ KIIT University
+            Software Development Engineer (SDE) • B.Tech CSE @ KIIT University
           </p>
         </div>
 

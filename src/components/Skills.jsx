@@ -2,7 +2,7 @@ const skillCategories = [
   {
     title: "Languages",
     color: "bg-custom-pink",
-    skills: ["C++", "JavaScript", "Python", "SQL", "HTML5 / CSS3"],
+    skills: ["C++", "JavaScript", "TypeScript", "SQL", "HTML5 / CSS3"],
   },
   {
     title: "Frontend Development",
@@ -10,9 +10,10 @@ const skillCategories = [
     skills: [
       "React.js",
       "Tailwind CSS",
-      "Component Architecture",
+      "TypeScript",
+      "Vite",
+      "Recharts",
       "Responsive Layouts",
-      "Single Page Applications",
     ],
   },
   {
@@ -21,9 +22,9 @@ const skillCategories = [
     skills: [
       "Node.js",
       "Express.js",
-      "RESTful API Design",
+      "RESTful APIs",
       "JWT Authentication",
-      "Middleware & Routing",
+      "API Architecture",
     ],
   },
   {
@@ -32,31 +33,31 @@ const skillCategories = [
     skills: [
       "MySQL",
       "TiDB Cloud",
-      "Database Normalization",
-      "ER Modeling",
-      "SAP CAP Basics",
+      "Database Design",
+      "Relational Modeling",
+      "IndexedDB",
     ],
   },
   {
-    title: "Core CS Concepts",
+    title: "Core CS & Fundamentals",
     color: "bg-purple-300",
     skills: [
       "Data Structures & Algorithms",
-      "Object-Oriented Programming",
-      "Operating Systems",
+      "Object-Oriented Programming (OOP)",
+      "System & API Design",
       "DBMS Architecture",
-      "Computer Networks",
+      "Problem Solving",
     ],
   },
   {
-    title: "Tools & Strengths",
+    title: "Tools & Engineering Practices",
     color: "bg-custom-red",
     skills: [
       "Git & GitHub",
-      "Postman",
-      "CI / CD Deployments",
-      "Problem Solving",
-      "Agile Sprints",
+      "UI Test Automation",
+      "CI / CD Pipelines",
+      "Agile Collaboration",
+      "LLM-Assisted Testing",
     ],
   },
 ];

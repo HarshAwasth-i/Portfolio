@@ -24,7 +24,7 @@ function Hero({ onOpenContact }) {
           HARSH AWASTHI
         </h1>
         <div className="bg-black text-white px-3 py-1 font-mono text-xs sm:text-sm font-bold rounded-md mb-4 rotate-1 shadow-sm">
-          FULL_STACK_DEVELOPER()
+          SOFTWARE_DEVELOPMENT_ENGINEER(SDE)
         </div>
 
         {/* Metadata Details */}
@@ -39,13 +39,19 @@ function Hero({ onOpenContact }) {
             <span className="bg-custom-green px-1.5 py-0.5 border border-black mr-2 text-black">
               [STATUS]
             </span>
-            <span>B.TECH CSE @ KIIT (2023–27)</span>
+            <span>B.TECH CSE @ KIIT (2023–27) · CGPA 7.7</span>
           </div>
           <div>
             <span className="bg-custom-blue px-1.5 py-0.5 border border-black mr-2 text-black">
-              [MISSION]
+              [EXPERIENCE]
             </span>
-            <span>To Build Scalable Software</span>
+            <span>EX-SDE INTERN @ CLUSTERCODE</span>
+          </div>
+          <div>
+            <span className="bg-purple-300 px-1.5 py-0.5 border border-black mr-2 text-black">
+              [LEETCODE]
+            </span>
+            <span>300+ DSA · 100+ SQL SOLVED</span>
           </div>
         </div>
 
@@ -120,25 +126,33 @@ function Hero({ onOpenContact }) {
           <p className="text-base sm:text-lg font-medium leading-relaxed mb-4">
             I'm Harsh, a{" "}
             <span className="font-bold bg-white px-1.5 py-0.5 border border-black rounded">
-              B.Tech Computer Science & Engineering undergraduate at KIIT University (2023–2027)
+              B.Tech Computer Science & Engineering undergraduate at KIIT (2023–2027)
             </span>{" "}
-            focused on engineering performant full-stack applications with clean architecture.
+            and full-stack Software Development Engineer passionate about building and shipping reliable, user-focused software.
+          </p>
+
+          <p className="text-base sm:text-lg font-medium leading-relaxed mb-4">
+            I've built and deployed three production-grade web applications using{" "}
+            <span className="font-bold bg-custom-pink px-1.5 py-0.5 border border-black rounded">
+              React.js, Node.js, Express.js, MySQL, and TiDB Cloud
+            </span>{" "}
+            with secure JWT authentication, RESTful APIs, and interactive analytics dashboards.
           </p>
 
           <p className="text-base sm:text-lg font-medium leading-relaxed mb-6">
-            I architect end-to-end web platforms using{" "}
-            <span className="font-bold bg-custom-pink px-1.5 py-0.5 border border-black rounded">
-              React, Node.js, Express, and MySQL
-            </span>
-            , while actively sharpening my problem-solving ability in{" "}
+            I also bring hands-on experience in{" "}
             <span className="font-bold bg-custom-green px-1.5 py-0.5 border border-black rounded">
-              C++ and Data Structures & Algorithms
-            </span>
-            .
+              AI-assisted UI test automation & LLM pipelines
+            </span>{" "}
+            from my software development internship, backed by solid fundamentals in OOP, data structures, and{" "}
+            <span className="font-bold bg-white px-1.5 py-0.5 border border-black rounded">
+              300+ DSA &amp; 100+ SQL
+            </span>{" "}
+            problems solved on LeetCode.
           </p>
 
           <div className="bg-white p-4 border-2 border-black rounded-xl inline-block font-bold text-sm sm:text-base shadow-neo-sm">
-            🚀 Open to Software Engineering, Full-Stack Roles &amp; Internships
+            🚀 Open to SDE Roles, Full-Stack Engineering &amp; Internships
           </div>
         </div>
 

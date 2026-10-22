@@ -35,38 +35,46 @@ function Terminal() {
 
       switch (cmd) {
         case "help":
-          addLine("Available commands: whoami, skills, projects, education, leetcode, contact, clear, sudo");
+          addLine("Available commands: whoami, skills, projects, experience, education, leetcode, contact, clear, sudo");
           addLine("Fun interactive games: game, guess, rps");
           break;
 
         case "whoami":
-          addLine("Harsh Awasthi | B.Tech CSE Undergrad (2023–2027) @ KIIT University");
-          addLine("Full Stack Developer | React, Node.js, Express, MySQL | C++ & DSA");
+          addLine("Harsh Awasthi | SDE & B.Tech CSE Undergrad (2023–2027) @ KIIT (CGPA: 7.7)");
+          addLine("Full Stack Developer | React, Node.js, Express, MySQL, TiDB Cloud | C++ & DSA");
           break;
 
         case "skills":
-          addLine("► Languages: C++, JavaScript, Python, HTML/CSS, SQL");
-          addLine("► Frontend: React.js, Tailwind CSS, Responsive UI, Component Design");
-          addLine("► Backend: Node.js, Express.js, RESTful APIs, JWT Auth");
-          addLine("► Databases: MySQL, TiDB Cloud, Schema Design & Optimization");
-          addLine("► Tools: Git, GitHub, Docker basics, SAP CAP, CI/CD");
+          addLine("► Languages: C++, JavaScript, TypeScript, SQL, HTML/CSS");
+          addLine("► Frontend: React.js, Tailwind CSS, TypeScript, Vite, Recharts");
+          addLine("► Backend: Node.js, Express.js, RESTful APIs, JWT Auth, API Design");
+          addLine("► Databases: MySQL, TiDB Cloud, Relational Schema Design, IndexedDB");
+          addLine("► Tools/Practices: Git & GitHub, UI Test Automation, LLM Pipelines, CI/CD, Agile");
           break;
 
         case "projects":
-          addLine("1. DevSync (Kanban platform with role-based JWT auth & analytics)");
-          addLine("2. Job Portal (Full-stack recruitment with candidate/recruiter workflows)");
-          addLine("3. TaskPulse (High-performance scalable task tracking system)");
-          addLine("Type 'projects' in browser or scroll to #projects to view live demos!");
+          addLine("1. DevSync (Kanban PM platform with 22 REST APIs & analytics dashboard)");
+          addLine("2. Instagram Wrapped (Client-side privacy-first analytics with Recharts & story recap)");
+          addLine("3. Job Portal (Full-stack recruitment with TiDB Cloud, JWT & 12 REST APIs)");
+          addLine("Scroll to #projects to view live demos & inspect repos!");
+          break;
+
+        case "experience":
+          addLine("💼 Software Development Intern @ ClusterCode Technology Sdn. Bhd. (Apr 2026 – Jun 2026)");
+          addLine("• Built AI-powered platform for UI test automation using LLMs & testing pipelines.");
+          addLine("💼 Full-Stack Web Architect (Self-Driven, 2023 – Present)");
+          addLine("• Deployed DevSync, Instagram Wrapped & Job Portal.");
           break;
 
         case "education":
           addLine("🎓 B.Tech in Computer Science & Engineering (2023 - 2027)");
-          addLine("KIIT University, Bhubaneswar, Odisha");
+          addLine("Kalinga Institute of Industrial Technology (KIIT) · CGPA: 7.7");
+          addLine("🎓 Lucknow Public School · Class XII: 82% | Class X: 90%");
           break;
 
         case "leetcode":
           addLine("🧠 LeetCode: https://leetcode.com/u/Harsh_Awasthii/");
-          addLine("Actively practicing DSA and algorithms in C++!");
+          addLine("Solved 300+ DSA problems in C++ and 100+ SQL database queries!");
           break;
 
         case "contact":
