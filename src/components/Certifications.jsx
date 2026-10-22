@@ -2,6 +2,18 @@ import { FaAward, FaExternalLinkAlt, FaCheckCircle } from "react-icons/fa";
 
 const certsList = [
   {
+    title: "Software Development Internship",
+    subtitle: "AI Web Testing & Full-Stack Automation",
+    issuer: "ClusterCode Technology Sdn. Bhd.",
+    date: "Apr 2026 – Jun 2026",
+    color: "bg-custom-pink",
+    tabLabel: "internship.doc",
+    link: "/certificates/internship-certificate.png",
+    description:
+      "Completed software engineering internship contributing to an AI-powered UI automation test suite using LLMs, API validation pipelines, and cross-functional agile development.",
+    badgeText: "Verified Experience",
+  },
+  {
     title: "SAP Certified Associate – Backend Developer",
     subtitle: "SAP Cloud Application Programming Model (CAP)",
     issuer: "SAP SE",
@@ -36,18 +48,6 @@ const certsList = [
     description:
       "Comprehensive certification on principled ethical leadership, ethical dilemmas resolution, compliance frameworks, and responsible technology decision-making.",
     badgeText: "Coursera Certified",
-  },
-  {
-    title: "Software Development Internship",
-    subtitle: "AI Web Testing & Full-Stack Automation",
-    issuer: "ClusterCode Technology Sdn. Bhd.",
-    date: "Apr 2026 – Jun 2026",
-    color: "bg-custom-pink",
-    tabLabel: "internship.doc",
-    link: "/certificates/internship-certificate.png",
-    description:
-      "Completed software engineering internship contributing to an AI-powered UI automation test suite using LLMs, API validation pipelines, and cross-functional agile development.",
-    badgeText: "Verified Experience",
   },
 ];
 
